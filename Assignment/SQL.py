@@ -349,8 +349,8 @@ def Purchase():
         results = cursor.fetchone()
         Number = results.get("Number") + 1
 
-        sql = "UPDATE `SaleMusic` SET `MusicID`=(%s),`Number`=(%s)"
-        cursor.execute(sql, (MusicID, Number))
+        sql = "UPDATE `SaleMusic` SET `Number`=(%s) WHERE `MusicID`=(%s),"
+        cursor.execute(sql, (Number,MusicID))
         db.commit()
 
         sql = "SELECT Balance FROM CustomerInformation WHERE id= (%s)"
