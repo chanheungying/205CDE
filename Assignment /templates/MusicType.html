@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Music Collection</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'Collection.css')}}">
+
+</head>
+<body>
+
+<HEADER style="text-align: center;" id="Bar"><h1>Music Company</h1></HEADER>
+
+
+<!-- ______________________________navbar________________________________________________-->
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-default" style="margin:0px;" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">Music</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+      <a href="/index" class="nav-link">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;Account</a>
+    </li>
+    <li class="nav-item">
+      <a href="/#UploadMusic" class="nav-link">
+      <span class="glyphicon glyphicon-upload"></span>&nbsp;Music Uploaded</a>
+    </li>
+    <li class="nav-item">
+      <a href="/#AddMusic" class="nav-link">
+      <span class="glyphicon glyphicon-share"></span>&nbsp;Share Music</a>
+    </li>
+    <li class="active">
+      <a href="/MusicCollection.html" class="nav-link">
+      <span class="glyphicon glyphicon-music"></span>&nbsp;Music Collections</a>
+    </li>
+    <li class="nav-item">
+      <a href="List.html" class="nav-link">
+      <span class="glyphicon glyphicon-heart"></span>&nbsp;Favourite</a>
+    </li>
+    <li class="nav-item">
+      <a href="Q.html" class="nav-link">
+      <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Q & A</a>
+    </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ______________________________Content___________________________________________-->
+
+	<section>
+    	<div id="EditMusic" class="container">
+    		<h2 style="margin-left: 3%;">Music Type</h2>
+
+
+  <div class="row" style="padding-left: 10%; padding-bottom: 5%; margin: auto;" >
+    <div class="col-lg-4 col-sm-4 col-12">
+      <p class="text-center"><strong>ALL</strong></p><br>
+      <a href="/All">
+      <img src="{{url_for('static', filename = 'images/image-20170308-24179-1ibgi8t.jpg')}}" class="img-circle person" alt="All" width="100%">
+      </a>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Pop Music</strong></p><br>
+      <a href="Pop.html">
+        <img src="{{url_for('static', filename = 'images/11-yic-pop-essay.w1200.h630.jpg')}}" class="img-circle person" alt="Pop Music" width="100%">
+      </a>
+    </div>
+
+    <div class="col-lg-4 col-sm-4 col-12">
+      <p class="text-center"><strong>Rock</strong></p><br>
+      <a href="Rock.html">
+        <img src="{{url_for('static', filename = 'images/music-day-story,-facebook_647_062116084641.jpg')}}" class="img-circle person" alt="rock" width="100%">
+      </a>
+    </div>
+  </div>
+
+
+    <div class="row" style="padding-left: 10%; padding-bottom: 1%; margin: auto;" >
+
+    <div class="col-lg-4 col-sm-4 col-12">
+      <p class="text-center"><strong>Dance Music</strong></p><br>
+      <a href="Dance.html">
+        <img src="{{url_for('static', filename = 'images/Inspirational-Famous-WhatsApp-Status.jpg')}}" class="img-circle person" alt="Dance Music" width="100%">
+      </a>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Jazz</strong></p><br>
+      <a href="Jazz.html">
+        <img src="{{url_for('static', filename = 'images/top-5-jazz-musicians-you-need-to-listen.png')}}" class="img-circle person" alt="jazz" width="100%">
+      </a>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Hip-Hop</strong></p><br>
+      <a href="Hip-Hop.html">
+        <img src="{{url_for('static', filename = 'images/hip-hop-in-hyderabad.jpg')}}" class="img-circle person" alt="Hip-hop" width="100%">
+      </a>
+    </div>
+
+    </div>
+
+
+    <div class="row" style="padding-left: 10%; padding-bottom: 5%; margin: auto;" >
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Blues</strong></p><br>
+      <a href="Blues.html">
+        <img src="{{url_for('static', filename = 'images/Blues-Music.jpg')}}" class="img-circle person" alt="Blues" width="100%">
+      </a>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Classical</strong></p><br>
+      <a href="Classical.html">
+        <img src="{{url_for('static', filename = 'images/beautiful-violin-wallpaper-widescreen-On-HD-Wallpaper.jpg')}}" class="img-circle person" alt="classical" width="100%">
+      </a>
+    </div>
+
+    <div class="col-sm-4 col-12">
+      <p class="text-center"><strong>Others</strong></p><br>
+      <a href="others.html">
+      <img src="{{url_for('static', filename = 'images/circle-made-music-instruments_23-2147509304.jpg')}}" class="img-circle person" alt="All" width="100%">
+      </a>
+    </div>
+  </div>
+</div>
+ </section>
+
+ <!-- ______________________________footer___________________________________________-->
+
+
+    <footer class="text-center">
+  <p>
+  Powered by Music Company
+  </p>
+</footer>
+
+
+</body>
+</html>

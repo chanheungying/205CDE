@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Collection</title>
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="Collection.css">
+    <script type="text/javascript" src="Back.js"></script>
+</head>
+<body>
+
+<HEADER style="text-align: center;" id="Bar"><h1>Music Company</h1></HEADER>
+
+<!-- _____________________________________________________________________________Navbar___________________________________________________________________________________-->
+<nav class="navbar navbar-expand-lg navbar-light navbar-default" style="margin:0px;" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="nav-item">
+      <a href="Account.html" class="nav-link">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;Account</a>
+    </li>
+    <li class="nav-item">
+      <a href="Account.html#UploadMusic" class="nav-link">
+      <span class="glyphicon glyphicon-upload"></span>&nbsp;Music Uploaded</a>
+    </li>
+    <li class="nav-item">
+      <a href="Account.html#AddMusic" class="nav-link">
+      <span class="glyphicon glyphicon-share"></span>&nbsp;Share Music</a>
+    </li>
+    <li class="active">
+      <a href="MusicType.html" class="nav-link">
+      <span class="glyphicon glyphicon-music"></span>&nbsp;Music Collections</a>
+    </li>
+    <li class="nav-item">
+      <a href="List.html" class="nav-link">
+      <span class="glyphicon glyphicon-heart"></span>&nbsp;Favourite</a>
+    </li>
+    <li class="nav-item">
+      <a href="Q.html" class="nav-link">
+      <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Q & A</a>
+    </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- _____________________________________________________________________________Content___________________________________________________________________________________-->
+
+    <section>
+        <p style="padding-left: 1%; padding-top:1%;"><a class="btn" role="button" style="background-color: #99999999" onclick="Back()">&nbsp;Back</a></p>
+
+        <script>
+            $(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#MusicList tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+        </script>
+
+<!-- ____________________________________________________________________Bar for select type of music______________________________________________________________________-->
+        <div style=" margin-left:5%">
+           <h2>Type of music:</h2>
+             <ul class="nav nav-tabs" role="tablist" style="width: 90%">
+                 <li><a href="Music Collection.html">ALL</a></li>
+                 <li><a href="Pop.html">Pop Music</a></li> 
+                 <li class="active"><a href="Rock.html">Rock</a></li> 
+                 <li><a href="Hip-Hop.html">Hip-Hop</a></li>   
+                 <li class="dropdown">
+                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">More <span class="caret"></span></a>    
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="Blues.html">Blues</a></li>        
+                            <li><a href="Dance.html">Dance Music</a></li>
+                            <li><a href="Jazz.html">Jazz</a></li>
+                            <li><a href="Classical.html">Classical</a></li>    
+                            <li><a href="others.html">Others</a></li>  
+                        </ul>     
+            </ul>
+            <h1 style="margin-left: 5%;">Rock
+
+            <div class="btn-group" style="float: right; margin-right:10%;">
+               <button type="button" class="btn active" style="background-color: #d9d9d9;">All</button>
+               <button type="button" class="btn" style="background-color: #d9d9d9;">Free</button>
+               <button type="button" class="btn" style="background-color: #d9d9d9;">Pay</button>
+            </div></h1>
+
+           <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 80%; margin:0% 0% 3% 5%; ">
+        </div>
+
+    <div id="DataList">
+        <div class="row">
+            <div class="container-fluid col-lx-12">
+                <table id="UserMusic">
+                    <tr id="Mp3">
+                        <th>ID</th>
+                        <th>Image</th>
+                        <th>Name</th>
+                        <th>Mp3</th>
+                        <th>Date</th>
+                        <th>Detail</th>
+                    </tr>
+                <tbody id="MusicList">
+                    <tr id="Item" style="border-top: 1px solid #d9d9d9">
+                        <td>00001</td>
+                        <td><img src="Unknown-2" id="Picture"></td>
+                        <td>First Song</td>
+                        <td><audio src=""></audio></td>
+                        <td>2019/2/20</td>
+                        <td><div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span>
+                                   <span class="caret"></span></button>
+                                   <ul class="dropdown-menu" style="text-align: center;">
+                                   <li><a href="#" class="btn" role="button" id="DetailBtn" data-toggle="modal" data-target="#Detail">Detail</a></li>
+                                   <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+                                   <li><a href="#">Comment</a></li>
+                               </ul>
+                           </div>
+                        </td>
+                    </tr>
+
+                    <tr id="Item">
+                        <td>00002</td>
+                        <td><img src="Unknown-2" id="Picture"></td>
+                        <td>Second Song</td>
+                        <td><audio src=""></audio></td>
+                        <td>2019/2/20</td>
+                        <td><div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" data-toggle="dropdown"><span class="glyphicon glyphicon-option-vertical"></span>
+                                   <span class="caret"></span></button>
+                                   <ul class="dropdown-menu" style="text-align: center;">
+                                   <li><a href="#" class="btn" role="button" id="DetailBtn" data-toggle="modal" data-target="#Detail">Detail</a></li>
+                                   <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li>
+                                   <li><a href="#" class="btn" role="button" id="DetailBtn" data-toggle="modal" data-target="#Comment">Comment</a></li>
+                               </ul>
+                           </div>
+                        </td>
+                    </tr>
+                </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+<!-- ________________________________________________________________________Detail modal_______________________________________________________________________________-->
+<div class="modal fade" id="Detail" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Detail</h2>
+        </div>
+        <div class="modal-body">
+            <img src="Unknown-2" id="D-img">
+          <table id="User">
+                <tr>
+                  <th id="Infor">Music ID:</th>
+                  <td>55577855</td>
+                </tr>
+                <tr>
+                    <th id="Infor">User Name:</th>
+                    <td>Bill Gates</td>
+                </tr>
+                <tr>
+                    <th id="Infor">Music Type:</th>
+                    <td>Pop Music</td>
+                </tr>
+                <tr>
+                    <th id="Infor">Source:</th>
+                    <td>Friends</td>
+                </tr>
+                <tr>
+                  <th id="Infor">Description:</th>
+                  <td>Hello!</td>
+                </tr>
+            </table>
+
+            <div class="btn-group" style="width: 100%; margin-top:10% ">
+               <button type="button" class="btn" style="background-color: #d9d9d9; width: 30%;"><span class="glyphicon glyphicon-heart"></span>Favourite</button>
+               <button type="button" class="btn" style="background-color: #d9d9d9; width: 30%;" id="DetailBtn" data-toggle="modal" data-target="#Comment">Comment</a>
+               <button type="button" class="btn" style="background-color: #d9d9d9; width: 40%;"><span class="glyphicon glyphicon-shopping-cart"></span>&nbsp;Buy it !</button>
+            </div></h1>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- ________________________________________________________________________Comment modal_______________________________________________________________________________-->
+<div class="modal fade" id="Comment" role="dialog">
+    <div class="modal-dialog">
+    
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Comment</h2>
+        </div>
+        <div class="modal-body" style="text-align: left;">
+            <form>
+  <textarea placeholder="Comment..."></textarea>
+  <button style="float:right; width: 8%; margin-left:2% "><span class="glyphicon glyphicon-send"></span>send</button>
+</form>
+            <div class="media">
+                <div class="media-left">
+                   <img src="Unknown-2" class="media-object" style="width:60px">
+                </div>
+                <div class="media-body">
+                   <h4 class="media-heading">Left-aligned</h4>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="media">
+                <div class="media-left">
+                   <img src="Unknown-2" class="media-object" style="width:60px">
+                </div>
+                <div class="media-body">
+                   <h4 class="media-heading">Left-aligned</h4>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+            <hr>
+            <div class="media">
+                <div class="media-left">
+                   <img src="Unknown-2" class="media-object" style="width:60px">
+                </div>
+                <div class="media-body">
+                   <h4 class="media-heading">Left-aligned</h4>
+                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <style type="text/css">
+      textarea {
+  width: 90%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  resize: none;
+}
+  </style>
+
+<!-- ________________________________________________________________________Footer_______________________________________________________________________________-->
+    <footer class="text-center">
+  <p>
+  Powered by <a href="https://www.w3schools.com/w3css/default.asp" style="color: black;">w3.css</a>
+  </p>
+</footer>
+
+</body>
+</html>

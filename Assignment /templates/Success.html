@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Page</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>    
+  </script>
+</head>
+
+<body>
+	<HEADER style="text-align: center;" id="Hm"><h1>Music Company</h1></HEADER>
+
+
+
+<!-- ______________________________navbar______________________________________________-->
+
+   <nav class="navbar navbar-expand-lg navbar-light navbar-default" style="margin:0px;" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#myPage">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+      <a href="#Hm" class="nav-link">
+        <span class="glyphicon glyphicon-home"></span>&nbsp;Home</a>
+    </li>
+    <li class="nav-item">
+      <a href="#How" class="nav-link"><span class="glyphicon glyphicon-question-sign"></span>&nbsp;How to Upload Music</a>
+    </li>
+    <li class="nav-item">
+      <a href="#Contact" class="nav-link"><span class="glyphicon glyphicon-earphone"></span>&nbsp;Contact</a>
+    </li>
+    <li class="nav-item navbar-right">
+      <a href="" data-toggle="modal" data-target="#Login"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Log In</a>
+    </li>
+    <li class="nav-item navbar-right">
+      <a href="" data-toggle="modal" data-target="#SignUp"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up</a>
+    </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ______________________________LogIn modal___________________________________________-->
+     <div class="modal fade" id="Login" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Log In</h2>
+        </div>
+
+        <div class="modal-body">
+              <form action="http://localhost:5000/Account" method="POST">
+      <p><input type="text" name="UserID" placeholder="User ID" required style="width: 400px;" autocomplete="on"></p>
+      <p><input type="password" name="pwd" placeholder="Password" required style="width: 400px;" autocomplete="on"><br></p> 
+      <p><button type="submit">Submit</button></p>
+    </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<!-- ______________________________SignUp modal___________________________________________-->
+
+    <div class="modal fade" id="SignUp" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h2 class="modal-title">Sign Up</h2>
+        </div>
+        <div class="modal-body">
+          <form action="http://localhost:5000/Success" method="POST"  onsubmit="return validation()" name="SignUp">
+                <input type="text" name="UserName" placeholder="User Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="number" name="Phone" placeholder="Phone Number" required>
+                <input type="password" name="pwd" placeholder="Password" required>
+                <input type="password" name="confirmPwd" placeholder="Retype Password" required><br>
+                <button type="Submit">Submit</button>
+          </form>
+
+    <script type="text/javascript">
+       function validation(){
+        var Name = document.forms["SignUp"]["UserName"].value
+        var Phone = document.forms["SignUp"]["Phone"].value
+        var Password = document.forms["SignUp"]["pwd"].value
+        var RetypePwd = document.forms["SignUp"]["confirmPwd"].value
+
+        if (Name.length < 3 ) {
+          alert("The length of name must longer than 2");
+          return false;
+        }
+
+        else if (Phone.length < 8 ) {
+          alert("Invalid phone number");
+          return false;
+        }
+
+        else if (Password !== RetypePwd ) {
+          alert("Password is not the same as the retyped one");
+          return false;
+        }
+
+        
+       }
+    </script>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <style type="text/css">
+
+
+#hrline {
+   width: 75%;
+   border-bottom: 1px solid #000; 
+   line-height: 0.1em;
+   margin: auto; 
+} 
+
+#hrline span { 
+    background:#fff;
+    text-align: center; 
+    padding:0 10px; 
+}
+
+
+input[type=text],
+input[type=password],
+input[type=email]{
+    margin-bottom: 30px;
+    padding: 4px;
+    font-family: cursive;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+input[type=submit]{
+     margin-top: 20px;
+    margin-bottom: 50px;
+    width: 120px;
+    height: 32px;
+    background-color: silver;
+    border-radius: 2px;
+    color: white;
+    font-family: fantasy;
+    font-weight: uppercase;
+    transition: 0.2s ease;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+    .modal {
+   top: 15%;
+   text-align: center;
+   color: #818078;
+   font-family: Futura, sans-serif;
+}
+  </style>
+
+
+
+
+<!-- ______________________________Content___________________________________________-->
+
+
+  <section class="container center content" style="max-width:1000px; background-color: white;">
+    <h1>Success To Sign Up!</h1>
+    <h3 style="margin-bottom: 5%;">Account information:</h3>
+    <table style="margin: 0px auto; padding-right: 20%;">
+                <tr>
+                  <th>Account ID:</th>
+                  <td>{{UserID}}</td>
+                </tr>
+                <tr>
+                    <th>User Name:</th>
+                    <td>{{UserName}}</td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td>{{Email}}</td>
+                </tr>
+                <tr>
+                  <th>Phone Number:</th>
+                  <td>{{phone}}</td>
+                </tr>
+                <tr>
+                  <th>Password:</th>
+                  <td>{{pwd}}</td>
+                </tr>
+    </table>
+    <h2 style="text-align: center;">Try to log in into the account!</h2>
+
+  </section>
+
+
+<!-- ______________________________Footer___________________________________________-->
+
+<footer class="text-center">
+  Powered by Music Company
+</footer>
+
+	</div>
+
+	<style type="text/css">
+
+    hr{
+      border: 1px solid #e6e6e6;
+    }
+
+     body{
+      font-family: Palatino;
+      font-size: 16px;
+    }
+
+    #Bar{
+      padding-top: 1%;
+    }
+       
+    .navbar{
+    background: rgba(200, 200, 200,0.9);
+    top: 0px;
+    width:100%;
+    z-index: 9999 !important;
+    }
+
+    .nav-item:hover { 
+      background-color: #e6e6e6;
+     }
+
+    footer{
+      background-color: rgb(200, 200, 200);
+      height: 100px;
+      padding: 5%;
+       }
+
+       header{
+        margin: 1%;
+       }
+
+input[type=text],[type=password],input[type=email], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 40px;
+  margin-bottom: 3%;
+  margin: auto;
+  width: 95%;
+}
+
+a{
+  color: inherit;
+}
+
+	</style>
+
+</body>
+</html>

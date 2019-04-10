@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Account Information</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename = 'Collection.css')}}">
+
+</head>
+<body>
+
+<HEADER style="text-align: center;" id="Bar"><h1>Music Company</h1></HEADER>
+
+
+<!-- _____________________________________________________________________________Navbar___________________________________________________________________________________-->
+
+<nav class="navbar navbar-expand-lg navbar-light navbar-default" style="margin:0px;" data-spy="affix" data-offset-top="197">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand">Music</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active">
+      <a href="/account" class="nav-link">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;Account</a>
+    </li>
+    <li class="nav-item">
+      <a href="#UploadMusic" class="nav-link">
+      <span class="glyphicon glyphicon-upload"></span>&nbsp;Music Uploaded</a>
+    </li>
+    <li class="nav-item">
+      <a href="#AddMusic" class="nav-link">
+      <span class="glyphicon glyphicon-share"></span>&nbsp;Share Music</a>
+    </li>
+    <li class="nav-item">
+      <a href="/MusicCollection" class="nav-link">
+      <span class="glyphicon glyphicon-music"></span>&nbsp;Music Collections</a>
+    </li>
+    <li class="nav-item">
+      <a href="List.html" class="nav-link">
+      <span class="glyphicon glyphicon-heart"></span>&nbsp;Favourite</a>
+    </li>
+    <li class="nav-item">
+      <a href="/Q&A" class="nav-link">
+      <span class="glyphicon glyphicon-question-sign"></span>&nbsp;Q & A</a>
+    </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<!-- _____________________________________________________________________________Account information___________________________________________________________________-->
+
+
+    <section class="container">
+    	<div id="AccountInfor" class="container-fluid">
+    		<h2 style="padding-top:5%; padding-bottom: 3% ">Account information</h2><br>
+            <div class="row">
+    		<img id="UserImg" src="{{url_for('static', filename = 'images/user.png')}}" class="col-12 col-sm-6">
+    		<table id="User" class="col-12 col-sm-6">
+    			<tr>
+               		<th id="Infor">Account ID:</th>
+               		<td>{{ AccountID }}</td>
+               	</tr>
+                <tr>
+               	    <th id="Infor">User Name:</th>
+               	    <td>{{ User }}</td>
+                </tr>
+                <tr>
+               	    <th id="Infor">Email:</th>
+               	    <td>{{ email }}</td>
+               	</tr>
+               	<tr>
+               		<th id="Infor">Phone Number:</th>
+               		<td>{{ phone }}</td>
+               	</tr>
+                <tr>
+                  <th id="Infor">Balance:</th>
+                  <td>{{ Balance }}</td>
+                </tr>
+            </table>
+        </div>
+            <br><a href="/LogOut"><button type="button" id="Change">Log out</button></a>
+            <a href="/Change"><button type="button" id="Change">Change Information</button></a>
+            <a href="/Friends"><button type="button" id="Friends">Friends</button></a><br><br>
+            <a href="/Deposit"><button type="button" id="Change">Deposit Money</button></a>
+            <a href="/PurchasedMusic"><button type="button" id="Friends">Purchased Music</button></a>
+            <a href="/SoldMusic"><button type="button" id="Change">Music Sold</button></a>
+
+
+
+
+<!-- _________________________________________________________________________Uploaded Music______________________________________________________________________________-->
+
+            <hr id="UploadMusic" style="margin-top: 7%; "><br>
+            <div class="row">
+            <div class="container-fluid col-lx-12">
+                <h2 style="margin-top:3%; margin-bottom:3%; ">Music Uploaded
+                <input class="form-control" id="myInput" type="text" placeholder="Search.." style="width: 20%; margin:0% 0% 3% 5%; float:right;"></h2>
+                <table id="UserMusic">
+                	<tr id="Mp3">
+                		<th>ID</th>
+                		<th>Type of Music</th>
+                		<th>Image</th>
+                		<th>Name</th>
+                		<th>Mp3</th>
+                		<th>Detail</th>
+                    <th>Remove</th>
+                	</tr>
+                	<tbody id="MusicList">
+                      {% for No in range(Number):%}
+                      <tr id="Item">
+                        <td>{{result[No].get("MusicID")}}</td>
+                        <td>{{result[No].get("TypeOfMusic")}}</td>
+                        <td><img src="{{url_for('static', filename = 'images/rock.jpeg')}}" id="Picture"></td>
+                        <td>{{result[No].get("MusicName")}}</td>
+                        <td><audio controls>
+                               <source src="horse.ogg" type="audio/ogg">
+                               <source src="{{url_for('static', filename = 'SampleAudio_0.7mb.mp3')}}" type="audio/mpeg">
+                               Your browser does not support the audio element.
+                            </audio>
+                        </td>
+                        <td>
+                            <form action="/Edit" method="POST">
+                                <input type="hidden" name="MusicID" value="{{result[No].get("MusicID")}}"">
+                                <button type="submit" class="btn" role="button" id="Ed" >Edit</button>
+                            </form>
+                        </td>
+                        <td>
+                            <form action="/RemoveMusic" method="POST">
+                                <input type="hidden" name="MusicID" value="{{result[No].get("MusicID")}}">
+                                <button type="submit" class="btn" role="button" id="Ed" >X</button>
+                            </form>
+                        </td>
+
+                      </tr>
+                      {% endfor%}
+
+                    </tbody>
+
+                </table>
+            </div>
+        </div>
+
+        <script>
+            $(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#MusicList tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+        </script>
+
+
+
+
+ <!-- ______________________________________________________________________________________Share Music________________________________________________________________-->
+
+        <hr id="AddMusic" style="margin-top: 10%;">
+    	</div>
+
+    	<div style="margin:auto;" class="container-fluid">
+        <h2 style="margin-top:3%; margin-bottom:3%; ">Share Music</h2>
+        <form  action="http://localhost:5000/UploadMusic" method="POST" enctype="multipart/form-data">
+          <p><input type="file"  accept="image/*" name="image" id="file"  onchange="loadFile(event)" style="display: none;"></p>
+        <p style="text-align: center;"><img id="output" width="250px" src="{{url_for('static', filename = 'images/rock.jpeg')}}" /></p>
+        <p style="text-align: center;"><label for="file" style="cursor: pointer;">Upload Image</label></p>
+   	      <table id="NewMusic">
+    			<tr>
+               	    <th>Music Name:</th>
+               	    <td><input type="text" name="Mname"></td>
+               	</tr>
+               <tr>
+                    <th>Share Music With:</th>
+                    <td><input type="radio" name="Sharing" value="Public">&nbsp;Public
+                        <input type="radio" name="Sharing" value="Friends">&nbsp;Friends
+                        <input type="radio" name="Sharing" value="Myself">&nbsp;Myself</td>
+                </tr>
+               <tr>
+                    <th>Type of Music:</th>
+                    <td><select name="Type">
+                      <option value="Rock">Rock Music</option>
+                      <option value="Pop Music">Pop Music</option>
+                      <option value="Dance Music">Dance Music</option>
+                      <option value="Jazz">Jazz</option>
+                      <option value="Hip-Hop">Hip-Hop</option>
+                      <option value="Blues">Blues</option>
+                      <option value="Classical Music">Classical</option>
+                      <option value="Others">Others</option>
+                    </select></td>
+                </tr>
+                <tr>
+               	    <th>Audio File:</th>
+               	    <td><input type="file" id="myFile" onclick="play()"><p id="music"></p></td>
+                </tr>
+                <tr>
+                  <th>Price</th>
+                  <td><input type="radio" name="Price" value="Free">&nbsp;Free<br>
+                      <input type="radio" name="Price" value="#pric">&nbsp;Have to pay $ <input type="number" name="pric" style="width:75px;"></td>
+                </tr>
+                <tr>
+               	    <th>Description:</th>
+               	    <td><textarea name="Description" rows="7" cols="25"></textarea></td>
+               	</tr>
+            </table>
+            <br><button type="submit" style="margin-left: 50%; margin-bottom: 5%; ">Upload</button>
+          </form>
+            
+        </div>
+    </section>
+
+
+<!-- ________________________________________________________________________________Footer________________________________________________________________________________-->
+
+    <footer class="text-center">
+  Powered by Music Company
+  </p>
+</footer>
+
+
+    <style type="text/css">
+       
+        #Infor{
+        	text-align: left;
+        	padding: 2%;
+            width: 50%;
+        }
+
+        #User{
+          padding-bottom: 2%;
+        }
+
+
+        #Change{
+		width: 170px;
+		height: 36px;
+		border:none;
+		border-radius: 2px;
+		color: white;
+		font-weight: 500px;
+		background-color: orange;
+		cursor: pointer;
+		float: right;
+		margin-right: 5%;
+        }
+
+        #Friends{
+		width: 170px;
+		height: 36px;
+		border:none;
+		border-radius: 2px;
+		color: white;
+		font-weight: 500px;
+		background-color: green;
+		cursor: pointer;
+		float: right;
+		margin-right: 5%;
+        }
+
+        hr{
+        	left: 4%;
+        	width: 100%
+        }
+
+        #UserMusic{
+        	width: 100%;
+        	text-align: center;
+        	background-color: lightgrey;
+        	margin: auto;
+        }
+
+        #UploadMusic{
+        	padding-top: 5%;
+        }
+
+        #Mp3{
+        	text-align: center;
+        }
+
+        #Picture{
+        	width: 75px;
+        	height: 50px;
+        }
+
+        #editInf{
+        	background-color: aliceblue;
+        }
+
+        #NewMusic{
+    		padding:30px 0px 15px 10%;
+    		width: 40%;
+    		margin: auto;
+    		}
+
+    	select{
+    		width: 40%;
+    	}
+        
+        #Ed{
+        	background-color: aliceblue;
+        }
+
+        #Ed:hover{
+        	background-color: #b3ecff;
+        }
+
+    </style>
+
+</body>
+</html>

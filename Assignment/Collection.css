@@ -1,0 +1,84 @@
+
+    body{
+         font-family: Palatino;
+        }
+
+        #Bar{
+            padding-top: 1%;
+        }
+       
+        .navbar{
+            background: rgba(200, 200, 200,0.9);
+            top: 0;
+            width:100%;
+            z-index: 9999 !important;
+        }
+
+        .nav-item:hover {
+            background-color: #e6e6e6;
+        }
+
+        footer{
+            background-color: rgb(200, 200, 200);
+            height: 100px;
+            padding: 5%;
+            margin-top:5%; 
+        }
+
+        #DataList{
+            background-color: #f2f2f2;
+            width: 80%;
+            margin: auto;
+            padding:2% 3% 3% 3%;
+        }
+
+        #UserMusic{
+            margin: auto;
+            width: 80%;
+        }
+
+        #Picture{
+            height:20%;
+        }
+
+        header{
+            margin: 1%;
+        }
+
+        #User{
+            padding:20px 0px 15px 0px;
+            margin: auto;
+            width: 40%;
+        }
+
+        th,td{
+            text-align: left;
+            padding: 1%;
+        }
+        
+
+        #Detail.modal {
+           top: 20%;
+           text-align: center;
+           color: #818078;
+           font-family: Futura, sans-serif;
+        }
+
+        #Comment.modal {
+           top: 18%;
+           text-align: center;
+           color: #818078;
+           font-family: Futura, sans-serif;
+        }
+
+        #D-img{
+            width: 40%;
+            margin:3%;
+        }
+
+
+        #UserImg{
+              float: left;
+              padding-left: 10%;
+              padding-right: 10%;
+        }
